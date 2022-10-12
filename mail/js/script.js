@@ -3,15 +3,19 @@ let found = false;
 
 const userMail = prompt("Inserici la tua mail");
 
-for (let i = 0; i < mailsArray.length; i++) {
-    const thisElement = mailsArray[i];
-    if (userMail === thisElement) {
-        found = true;
+if (userMail.includes("@") && userMail.includes(".")) {
+    for (let i = 0; i < mailsArray.length; i++) {
+        const thisElement = mailsArray[i];
+        if (userMail.toLowerCase() === thisElement.toLowerCase()) {
+            found = true;
+            break;
+        }
     }
-}
-
-if (found) {
-    alert("Puoi accedere");
+    if (found) {
+        alert("Puoi accedere");
+    } else {
+        alert("Non puoi accedere");
+    }
 } else {
-    alert("Non puoi accedere");
+    alert("Non hai inserito una mail");
 }
